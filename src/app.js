@@ -2,7 +2,12 @@ var http = require("http");
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-  res.json({code:200,message:"It's working"})
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
+
+var ApplicationController = require('./application_controller');
+app.use('/api/v1', ApplicationController);
 module.exports = app;
