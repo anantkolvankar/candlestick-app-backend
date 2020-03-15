@@ -14,6 +14,19 @@ $ npm install
 $ npm start
 ```
 
+## Docker support
+```sh
+$ cd candlestick-app-backend
+
+# Build your docker image
+$ docker build -t candlestick-app/backend .
+
+# Run your docker image with tag name
+$ docker run -p 8080:8080 candlestick-app/backend
+
+# Navigate to http://localhost:8080/api/v1/markets_details
+```
+
 # API Endpoints
 ```
 GET http://localhost:8080/api/v1/markets_details
